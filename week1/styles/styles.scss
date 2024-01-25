@@ -1,0 +1,113 @@
+// Variables
+$primary-text-color: #333;
+$secondary-text-color: #666;
+$link-hover-color: #00ddff;
+$border-color: #d0d0d0;
+$active-link-color: #DEB887;
+$font-stack: Helvetica, Arial, sans-serif;
+$lora-font: 'Lora';
+
+// Mixins
+@mixin link-style {
+    text-decoration: none;
+    color: $secondary-text-color;
+
+    &:hover {
+        color: $link-hover-color;
+    }
+
+    &:active {
+        color: $active-link-color;
+    }
+}
+
+// Styles
+body {
+    margin: 20px;
+    font-family: $font-stack;
+    color: $primary-text-color;
+
+    @media (min-width: 650px) {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+}
+
+h1,
+h2 {
+    font-family: $lora-font;
+    font-style: normal;
+    text-decoration: none;
+    text-align: center;
+
+    a {
+        @include link-style;
+        color: $primary-text-color;
+    }
+}
+
+nav {
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+        li {
+            margin-bottom: 5px;
+
+            @media (min-width: 650px) {
+                margin-right: 10px;
+                margin-bottom: 0;
+            }
+
+            a {
+                @include link-style;
+            }
+        }
+    }
+}
+
+.post-date {
+    text-align: right;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 20px;
+}
+
+figure {
+    margin: 0 auto;
+    text-align: center;
+
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+article {
+    @media (min-width: 650px) {
+        display: grid;
+        grid-template-areas: "post-date post-content";
+        padding: 0px;
+
+        .post-date {
+            grid-area: post-date;
+            width: 150px;
+            border-right: 1px solid $border-color;
+            padding-right: 20px;
+        }
+
+        .post-content {
+            grid-area: post-content;
+            width: 450px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    }
+}
