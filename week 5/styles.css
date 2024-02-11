@@ -1,0 +1,35 @@
+.row-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.row-grid .card {
+    flex-grow: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.col-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-direction: column;
+    align-content: flex-start;
+    height: 50vh;
+}
+
+.col-grid .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.col-grid .card img {
+    width: 100%;
+    height: auto;
+}
